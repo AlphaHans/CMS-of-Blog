@@ -26,3 +26,5 @@ new Vue({
   components: {Spinner, Toast, MyCanvas},
   computed: mapState(['isLoading', 'isToasting'])
 }).$mount('#CMS2')
+
+router.push('/');
