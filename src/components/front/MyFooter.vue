@@ -1,10 +1,10 @@
 <template>
   <footer>
     <div class="copyright">
-      &copy;2015-2016 Lei Jiang, ycwalker@outlook.com
+      &copy;2015-2017 Hans, lzh_hans@outlook.com
     </div>
-    <router-link :to="{path:'/'}" class="login" tag="div">
-      站长登陆
+    <router-link :to="{path:'/login'}" class="login" tag="div">
+      站长登录
     </router-link>
   </footer>
 </template>

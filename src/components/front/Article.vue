@@ -1,52 +1,57 @@
 <template>
-  <main class="wrap">
-    <my-header></my-header>
-    <section class="article">
-      <article class="block">
-        <div class="title">{{article.title}}</div>
-        <div class="info">{{article.date |toDate}}</div>
-        <div class="content" v-html="article.content"></div>
-      </article>
-    </section>
-    <my-footer></my-footer>
-  </main>
+<main class="wrap">
+  <my-header></my-header>
+  <section class="article">
+    <article class="block">
+      <div class="title">{{article.title}}</div>
+      <div class="info">{{article.date |toDate}}</div>
+      <div class="content" v-html="article.content"></div>
+    </article>
+  </section>
+  <my-footer></my-footer>
+</main>
 </template>
 <script>
-  import {mapState}   from 'vuex'
-  import marked       from '../../assets/js/marked.min'
-  import hljs         from '../../assets/js/highlight.pack'
-  import MyHeader     from './MyHeader.vue'
-  import MyFooter     from './MyFooter.vue'
+import {
+  mapState
+} from 'vuex'
+import marked from '../../assets/js/marked.min'
+import hljs from '../../assets/js/highlight.pack'
+import MyHeader from './MyHeader.vue'
+import MyFooter from './MyFooter.vue'
 
-  export default{
-    created(){
-      this.fetchData()
+export default {
+  created() {
+    this.fetchData()
+  },
+  updated() {
+    this.highlight()
+  },
+  methods: {
+    fetchData() {
+      this.$store.dispatch('getArticle', this.$route.query.id)
     },
-    updated(){
-      this.highlight()
-    },
-    methods: {
-      fetchData(){
-        this.$store.dispatch('getArticle', this.$route.query.id)
-      },
-      highlight(){
-        setTimeout(() => {
-          hljs.initHighlighting.called = false
-          hljs.initHighlighting()
-        }, 0)
-      }
-    },
-    computed: mapState({
-      article: state => {
-        state.article.content = marked(state.article.content || '')
-        return state.article
-      }
-    }),
-    components: {MyHeader, MyFooter},
-    watch: {
-      '$route': ['fetchData', 'highlight']
+    highlight() {
+      setTimeout(() => {
+        hljs.initHighlighting.called = false
+        hljs.initHighlighting()
+      }, 0)
     }
+  },
+  computed: mapState({
+    article: state => {
+      state.article.content = marked(state.article.content || '')
+      return state.article
+    }
+  }),
+  components: {
+    MyHeader,
+    MyFooter
+  },
+  watch: {
+    '$route': ['fetchData', 'highlight']
   }
+}
 </script>
 
 <style lang="sass" rel="stylesheet/scss">

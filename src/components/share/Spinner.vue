@@ -1,8 +1,6 @@
 <template>
-  <div class="shade">
-    <svg class="spinner"
-         viewBox="0 0 66 66"
-         xmlns="http://www.w3.org/2000/svg">
+<div class="shade">
+  <svg class="spinner" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
       <circle class="path"
               fill="none"
               stroke-width="6"
@@ -12,7 +10,7 @@
               r="30">
       </circle>
     </svg>
-  </div>
+</div>
 </template>
 <style lang="sass" rel="stylesheet/scss" scoped>
 
@@ -58,19 +56,19 @@
 
   @keyframes colors {
     0% {
-      stroke: #4285F4;
+      stroke: #42B983;
     }
     25% {
-      stroke: #DE3E35;
+      stroke: #42B983;
     }
     50% {
-      stroke: #F7C223;
+      stroke: #42B983;
     }
     75% {
-      stroke: #1B9A59;
+      stroke: #42B983;
     }
     100% {
-      stroke: #4285F4;
+      stroke: #42B983;
     }
   }
 

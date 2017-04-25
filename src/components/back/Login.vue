@@ -50,7 +50,7 @@
           .then(() => {
             const date = new Date(Date.now() + 60000 * 30)
             set('user', this.name, date, '/', window.location.hostname)
-            this.$router.push({path: '/console'})
+            this.$router.push({path: '/admin'})
           })
           .catch(msg => this.info = msg)
       },

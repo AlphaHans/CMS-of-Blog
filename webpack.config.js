@@ -38,7 +38,7 @@ module.exports = {
           loaders: {
             sass: extractCSSFromVue.extract({
               loader: 'css!sass!',
-              fallbackLoader: 'vue-style-loader'
+              fallback: 'vue-style-loader'
             })
           }
         }
